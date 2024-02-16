@@ -20,10 +20,14 @@ function start(id_1,id_2,id_3){
     var q_ = question?.[id_1]?.[id_2][id_3];
     var q_l = q_.length;
     for(let i = 0;i<q_l;i++){
-        if(prompt(`問題${i + 1}:${q_[i].q}`) == q_[i].a){
+        var ___1 = prompt(`問題${i + 1}:${q_[i].q}`);
+        if(___1 == q_[i].a){
             alert('正解');
         }else{
             alert(`不正解\n正解:${q_[i].a}`);
         }
+        if(___1){}else{
+            return;
+        };
     }
 }
