@@ -21,13 +21,22 @@ function start(id_1,id_2,id_3){
     var q_l = q_.length;
     for(let i = 0;i<q_l;i++){
         var ___1 = prompt(`問題${i + 1}:${q_[i].q}`);
-        if(___1 == q_[i].a){
-            alert('正解');
+        if(___1){
+            if(___1 == q_[i].a){
+                alert('正解');
+            }else{
+                alert(`不正解\n正解:${q_[i].a}`);
+            }
         }else{
-            alert(`不正解\n正解:${q_[i].a}`);
+            if(confirm(`本当に終了しますか`)){
+                return false;
+            }else{
+                if(___1 == q_[i].a){
+                    alert('正解');
+                }else{
+                    alert(`不正解\n正解:${q_[i].a}`);
+                }
+            }
         }
-        if(___1){}else{
-            return;
-        };
     }
 }
