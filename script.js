@@ -20,7 +20,7 @@ function start(id_1,id_2,id_3){
     var q_ = question?.[id_1]?.[id_2][id_3];
     var q_l = q_.length;
     for(let i = 0;i<q_l;i++){
-        var ___1 = prompt(`問題${i + 1}:${q_[i].q}`);
+        var ___1 = prompt(`問題${i + 1}:\n${q_[i].q}`);
         if(___1){
             if(___1 == q_[i].a){
                 alert('正解');
@@ -31,6 +31,7 @@ function start(id_1,id_2,id_3){
             if(confirm(`本当に終了しますか`)){
                 return false;
             }else{
+                ___1 = prompt(`問題${i + 1}:\n${q_[i].q}`);
                 if(___1 == q_[i].a){
                     alert('正解');
                 }else{
