@@ -19,25 +19,31 @@ function start(id_1,id_2,id_3){
     };
     var q_ = question?.[id_1]?.[id_2][id_3];
     var q_l = q_.length;
+    var point = 0;
+    var ___1 = `Eroor   エラー`;
     for(let i = 0;i<q_l;i++){
-        var ___1 = prompt(`問題${i + 1}:\n${q_[i].q}`);
+        ___1 = prompt(`問題${i + 1}:\n${q_[i].q}`);
         if(___1){
             if(___1 == q_[i].a){
-                alert('正解');
+                point += 10;
+                alert(`正解\n現在${point}ポイント`);
             }else{
-                alert(`不正解\n正解:${q_[i].a}`);
+                alert(`不正解\n正解:${q_[i].a}\n現在${point}ポイント`);
             }
         }else{
-            if(confirm(`本当に終了しますか`)){
+            if(confirm(`本当に終了しますか\n現在${point}ポイント`)){
+                location.hash = `#${point}point`;
                 return false;
             }else{
-                ___1 = prompt(`問題${i + 1}:\n${q_[i].q}`);
+                ___1 = prompt(`[復元済み]\n問題${i + 1}:\n${q_[i].q}\n※キャンセルボタン無効`);
                 if(___1 == q_[i].a){
-                    alert('正解');
+                    point += 10;
+                    alert(`正解\n現在${point}ポイント`);
                 }else{
-                    alert(`不正解\n正解:${q_[i].a}`);
+                    alert(`不正解\n正解:${q_[i].a}\n現在${point}ポイント`);
                 }
             }
         }
     }
+    location.hash = `#${point}point`;
 }
